@@ -70,7 +70,7 @@ namespace SchedulerGSync {
         void OnBbiSyncItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
             this.dxGoogleCalendarSync1.CalendarId = ApplicationConfig.Instance.CalendarId;
             this.dxGoogleCalendarSync1.CalendarService = this.service;
-            this.dxGoogleCalendarSync1.Sync();
+            this.dxGoogleCalendarSync1.Synchronize();
         }
 
         async protected override void OnLoad(EventArgs e) {
