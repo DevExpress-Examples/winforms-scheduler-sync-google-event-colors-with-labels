@@ -1,5 +1,6 @@
-This example demonstrates how to synchronize Google Event colors with Scheduler Labels.
-The Scheduler is bound to an [Entity Framework Core data source](https://documentation.devexpress.com/WindowsForms/118049/Common-Features/Data-Binding/Binding-to-Entity-Framework-Core).
+# How to synchronize Google Event colors with Scheduler Labels
+
+In this example, the Scheduler is bound to an [Entity Framework Core data source](https://documentation.devexpress.com/WindowsForms/118049/Common-Features/Data-Binding/Binding-to-Entity-Framework-Core).
 
 To run the sample, you need to:
 * go to "Project | Manage NuGet packages..." to re-install EF Core and Google Calendar API packages used in this sample;
