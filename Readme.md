@@ -3,20 +3,19 @@
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T830507)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-# How to synchronize Google Event colors with Scheduler Labels
+# WinForms Scheduler - Synchronize colors of Google Event with appointment labels
 
-In this example, the Scheduler is bound to an [Entity Framework Core data source](https://documentation.devexpress.com/WindowsForms/118049/Common-Features/Data-Binding/Binding-to-Entity-Framework-Core).
+In this example, the WinForms Scheduler is bound to an [Entity Framework Core data source](https://documentation.devexpress.com/WindowsForms/118049/Common-Features/Data-Binding/Binding-to-Entity-Framework-Core).
 
-To run the sample, you need to:
-* go to "Project | Manage NuGet packages..." to re-install EF Core and Google Calendar API packages used in this sample;
-* replace the contents of the *client_secret.json* file with a contents of your own credentials file. You can download this file at the
-[.NET Quickstart](https://developers.google.com/calendar/quickstart/dotnet) Google help page.
+To run the sample, do the following:
 
-At the first launch, the application will ask you to log in with any Google account.
+* Go to "Project > Manage NuGet packages..." to re-install EF Core and Google Calendar API packages used in the example.
+* Replace the contents of the *client_secret.json* file with contents of your own credentials file. You can download this file at [.NET Quickstart](https://developers.google.com/calendar/quickstart/dotnet).
 
-To select a Google Calendar that you want to sync with the Scheduler, click the *Options* Ribbon button. To manually start synchronization click *Sync*.
+The application will ask you to log in with a Google account.
 
-On every synchronization, the custom **UpdateLabels** mehod retrieves colors used by Google Events and uses them to populate the Scheduler Label collection.
+To select a Google Calendar that you want to sync with the Scheduler control, click the *Options* Ribbon button. To manually start synchronization click *Sync*.
 
-Colors are synchronized on the **AppointmentValuesRequested** / **EventValuesRequested** events.
-These events occur when the **DXGoogleCalendarSync** needs to retrieve Appointment data and assign it to a paired Event, or vice versa.
+A custom `UpdateLabels` mehod retrieves colors used by Google Events and uses them to populate the Scheduler Label collection.
+
+Colors are synchronized on `AppointmentValuesRequested` / `EventValuesRequested` events. These events occur when the `DXGoogleCalendarSync` needs to retrieve appointment data and assign it to a paired Google Event, or vice versa.
