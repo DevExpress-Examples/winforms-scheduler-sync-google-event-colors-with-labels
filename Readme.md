@@ -3,7 +3,7 @@
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T830507)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-# WinForms Scheduler - Synchronize colors of Google Event with appointment labels
+# WinForms Scheduler - Synchronize colors of Google Events with appointment labels
 
 In this example, the WinForms Scheduler is bound to an [Entity Framework Core data source](https://documentation.devexpress.com/WindowsForms/118049/Common-Features/Data-Binding/Binding-to-Entity-Framework-Core).
 
