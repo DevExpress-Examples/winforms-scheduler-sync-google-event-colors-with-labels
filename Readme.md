@@ -14,8 +14,8 @@ To run the sample, do the following:
 
 The application will ask you to log in with a Google account.
 
-To select a Google Calendar that you want to sync with the Scheduler control, click the *Options* Ribbon button. To manually start synchronization click *Sync*.
+To select a Google Calendar that you want to sync with the Scheduler control, click the *Options* Ribbon button. To manually start synchronization, click *Sync*.
 
-A custom `UpdateLabels` mehod retrieves colors used by Google Events and uses them to populate the Scheduler Label collection.
+A custom `UpdateLabels` method retrieves colors used by Google Events and uses them to populate the Scheduler Label collection.
 
 Colors are synchronized on `AppointmentValuesRequested` / `EventValuesRequested` events. These events occur when the `DXGoogleCalendarSync` needs to retrieve appointment data and assign it to a paired Google Event, or vice versa.
