@@ -21,7 +21,7 @@ A custom `UpdateLabels` method retrieves colors used by Google Events and uses t
 
 Colors are synchronized on `AppointmentValuesRequested` / `EventValuesRequested` events. These events occur when the `DXGoogleCalendarSync` needs to retrieve appointment data and assign it to a paired Google Event, or vice versa.
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=winforms-scheduler-sync-google-event-colors-with-labels&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=winforms-scheduler-sync-google-event-colors-with-labels&~~~was_helpful=no)
 
