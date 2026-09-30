@@ -113,13 +113,23 @@ namespace SchedulerGSync {
         }
                 
         async Task<UserCredential> AuthorizeToGoogle() {
-            using (FileStream stream = new FileStream("client_secret.json", FileMode.Open, FileAccess.Read)) {
-                string credPath = Environment.GetFolderPath(
-                    Environment.SpecialFolder.Personal);
+            string secretsPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "client_secret.json");
+            if (!File.Exists(secretsPath))
+                throw new FileNotFoundException(
+                    "Google OAuth client secrets file was not found. Place a valid client_secret.json next to the executable.",
+                    secretsPath);
+
+            using (FileStream stream = new FileStream(secretsPath, FileMode.Open, FileAccess.Read)) {
+                string credPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
                 credPath = Path.Combine(credPath, $".credentials/{nameof(SchedulerGSync)}.json");
 
+                var clientSecrets = GoogleClientSecrets.FromStream(stream);
+                if (clientSecrets?.Secrets == null)
+                    throw new InvalidOperationException(
+                        "The client_secret.json file is invalid. Place a valid client_secret.json next to the executable.");
+
                 return await GoogleWebAuthorizationBroker.AuthorizeAsync(
-                    GoogleClientSecrets.Load(stream).Secrets,
+                    clientSecrets.Secrets,
                     this.scopes,
                     "user",
                     CancellationToken.None,
