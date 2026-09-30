@@ -1,42 +1,42 @@
-﻿Imports System
 Imports System.IO
-Imports System.Linq
 Imports System.Xml.Serialization
 
 Namespace SchedulerGSync
-	Public Class ApplicationConfig
-		Private Shared privateInstance As ApplicationConfig = Load()
-		Public Shared Property Instance() As ApplicationConfig
-			Get
-				Return privateInstance
-			End Get
-			Private Set(ByVal value As ApplicationConfig)
-				privateInstance = value
-			End Set
-		End Property
 
-		Shared Function Load() As ApplicationConfig
-			Dim fileInfo = New FileInfo($"{NameOf(SchedulerGSync)}.appsettings")
-			If Not fileInfo.Exists Then
-				Return New ApplicationConfig()
-			End If
-			Dim serializer As New XmlSerializer(GetType(ApplicationConfig))
-			Using fileStream = fileInfo.OpenRead()
-				Return DirectCast(serializer.Deserialize(fileStream), ApplicationConfig)
-			End Using
-		End Function
+    Public Class ApplicationConfig
 
-		Public Sub New()
-		End Sub
+        Private Shared _Instance As ApplicationConfig
 
-		Public Property CalendarId() As String
+        Public Shared Property Instance As ApplicationConfig = Load()
+            Get
+                Return _Instance
+            End Get
 
-		Public Sub Save()
-			Dim fileInfo = New FileInfo($"{NameOf(SchedulerGSync)}.appsettings")
-			Dim serializer As New XmlSerializer(GetType(ApplicationConfig))
-			Using fileStream = fileInfo.OpenWrite()
-				serializer.Serialize(fileStream, Me)
-			End Using
-		End Sub
-	End Class
+            Private Set(ByVal value As ApplicationConfig)
+                _Instance = value
+            End Set
+        End Property
+
+        Private Shared Function Load() As ApplicationConfig
+            Dim fileInfo = New FileInfo($"{NameOf(SchedulerGSync)}.appsettings")
+            If Not fileInfo.Exists Then Return New ApplicationConfig()
+            Dim serializer As XmlSerializer = New XmlSerializer(GetType(ApplicationConfig))
+            Using fileStream = fileInfo.OpenRead()
+                Return CType(serializer.Deserialize(fileStream), ApplicationConfig)
+            End Using
+        End Function
+
+        Public Sub New()
+        End Sub
+
+        Public Property CalendarId As String
+
+        Public Sub Save()
+            Dim fileInfo = New FileInfo($"{NameOf(SchedulerGSync)}.appsettings")
+            Dim serializer As XmlSerializer = New XmlSerializer(GetType(ApplicationConfig))
+            Using fileStream = fileInfo.OpenWrite()
+                serializer.Serialize(fileStream, Me)
+            End Using
+        End Sub
+    End Class
 End Namespace
