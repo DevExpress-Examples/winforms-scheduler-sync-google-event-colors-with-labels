@@ -7,11 +7,8 @@ Namespace SchedulerGSync
 
         Private Shared _Instance As ApplicationConfig
 
-        Public Shared Property Instance As ApplicationConfig
+        Public Shared Property Instance As ApplicationConfig = Load()
             Get
-                If _Instance Is Nothing Then
-                    _Instance = Load()
-                End If
                 Return _Instance
             End Get
 
