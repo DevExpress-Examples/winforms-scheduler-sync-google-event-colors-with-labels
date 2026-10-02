@@ -5,7 +5,15 @@ using System.Xml.Serialization;
 
 namespace SchedulerGSync {
     public class ApplicationConfig {
-        public static ApplicationConfig Instance { get; private set; } = Load();
+        static ApplicationConfig instance;
+        public static ApplicationConfig Instance {
+            get {
+                if (instance == null)
+                    instance = Load();
+                return instance;
+            }
+            private set => instance = value;
+        }
 
         static ApplicationConfig Load() {
             var fileInfo = new FileInfo($"{nameof(SchedulerGSync)}.appsettings");
