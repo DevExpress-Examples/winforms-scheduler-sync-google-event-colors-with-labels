@@ -5,18 +5,16 @@ Namespace SchedulerGSync
 
     Public Class ApplicationConfig
 
-        Private Shared _Instance As ApplicationConfig
+        Private Shared instanceField As ApplicationConfig
 
         Public Shared Property Instance As ApplicationConfig
             Get
-                If _Instance Is Nothing Then
-                    _Instance = Load()
-                End If
-                Return _Instance
+                If instanceField Is Nothing Then instanceField = Load()
+                Return instanceField
             End Get
 
             Private Set(ByVal value As ApplicationConfig)
-                _Instance = value
+                instanceField = value
             End Set
         End Property
 
